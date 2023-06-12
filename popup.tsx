@@ -36,8 +36,6 @@ function IndexPopup() {
 
         var tabContent = injectionResults[0].result
   
-        console.log("Active Tab Content:", tabContent)
-
         setSummaryText('')
 
         await summarizeByOpenAI(tabContent, openAIKey, chunk => {

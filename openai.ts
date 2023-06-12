@@ -37,9 +37,7 @@ async function makeCompletionQuery(
       }
       // Massage and parse the chunk of data
       const chunk = decoder.decode(value)
-      console.log('chunk:', chunk)
       const lines = chunk.split("data:")
-      console.log('lines:', lines)
 
       const parsedLines = lines
         .filter((line) => line !== "" && line.indexOf("[DONE]") < 0) // Remove empty lines and "[DONE]"
@@ -50,7 +48,6 @@ async function makeCompletionQuery(
         const { text } = choices[0]
         // Update the UI with the new content
         if (text) {
-          console.log('content:', text)
           if(onChunkReady) {
             onChunkReady(text)
           }

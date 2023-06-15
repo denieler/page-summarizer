@@ -38,6 +38,11 @@ function IndexPopup() {
   
         setSummaryText('')
 
+        if (!openAIKey) {
+          setSummaryText('Please set your OpenAI API key in the extension options.')
+          return
+        }
+
         await summarizeByOpenAI(tabContent, openAIKey, chunk => {
           setSummaryText(value => value + chunk)
         })
